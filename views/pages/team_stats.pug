@@ -18,6 +18,36 @@ div.container
         th Home Score
         th Opp. Score
       //- TODO: Iterate over the football_game table data and display the date, name, home score, and visitor score for each row. Determine the winner and display the winner's name in the last column
+
+      - if(result_1)
+
+      for item in result_1
+
+        - var winner = '';
+
+        tr
+
+        - if(item.home_score < item.visitor_score)
+
+            - winner = item.visitor_name
+
+        - else if(item.home_score > item.visitor_score)
+
+            - winner = "CU Boulder"
+
+        - else
+
+            - winner = "Tie"
+
+        td #{item.game_date}
+
+        td #{item.visitor_name}
+
+        td #{item.home_score}
+
+        td #{item.visitor_score}
+
+        td #{winner}
     br
 
     table.table.text-center
@@ -25,7 +55,10 @@ div.container
         th Wins
         th Losses
       tr
-        //- TODO: Display the total number of wins here. This value should come from your server-side db query.
+        //- TODO: Display the total number of wins here. This value should come from sssyour server-side db query.
         //- TODO: Display the total number of losses here. This value should come from your server-side db query.
+
+        td #{result_2}
+        td #{result_3}
 
 include ../partials/footer.pug
